@@ -1,0 +1,9 @@
+import "Laser.idsl";
+import "DifferentialRobot.idsl";
+Component keyboardRobotController{
+	Communications{
+		requires DifferentialRobot, Laser;
+
+	};
+	language Cpp;
+};

@@ -1,0 +1,8 @@
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/install/strip.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/edit_cache.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/rebuild_cache.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/square.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/list_install_components.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/install/local.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/install.dir
+/home/paras/robocomp/components/squarecomp/build/src/CMakeFiles/square_autogen.dir
