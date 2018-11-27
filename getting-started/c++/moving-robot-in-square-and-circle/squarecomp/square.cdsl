@@ -1,0 +1,9 @@
+import "DifferentialRobot.idsl";
+Component square
+{
+	Communications{
+		requires DifferentialRobot;
+
+	};
+	language Cpp;
+};
