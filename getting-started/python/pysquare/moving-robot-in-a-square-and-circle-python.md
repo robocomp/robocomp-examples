@@ -79,4 +79,4 @@ Now that you have understood and created a basic python component you can now ex
 	self.differentialrobot_proxy.setSpeedBase(10, 0.87)
 	time.sleep(0.5)
 
-Svae the component and run it similarly as you did for square. The code for the entire component can be found [here](https://github.com/rajathkumarmp/RoboComp-Python-Components)
+Svae the component and run it similarly as you did for square. 
