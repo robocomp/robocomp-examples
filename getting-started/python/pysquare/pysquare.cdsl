@@ -1,0 +1,11 @@
+import "DifferentialRobot.idsl";
+
+Component pysquare
+{
+	Communications{
+		requires DifferentialRobot;
+
+	};
+	language Python;
+};
+
