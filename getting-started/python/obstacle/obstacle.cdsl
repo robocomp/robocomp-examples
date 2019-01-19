@@ -1,0 +1,9 @@
+import "Laser.idsl";
+import "DifferentialRobot.idsl";
+Component obstacle{
+	Communications{
+		requires DifferentialRobot, Laser;
+
+	};
+	language Python;
+};

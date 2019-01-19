@@ -1,0 +1,10 @@
+import "Laser.idsl";
+import "DifferentialRobot.idsl";
+
+Component pydist{
+	Communications{
+		requires DifferentialRobot, Laser;
+
+	};
+	language Python;
+};
