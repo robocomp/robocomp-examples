@@ -15,39 +15,41 @@ To implement this first initialize the code with the following in specific worke
 
 Define a parameter key which will get the input form the keyboard. If in case the key pressed is up arrow (KEY_UP) then increase the adv by 20 (arbitrary) and by using differentialrobot's setSpeedBase function control the bot. adv and rot are intialized to 0 initially at the  SpecificWorker class. This is similar to other cases. The code is as follows,
 ```python
-	def compute(self):
-            try:
-                key = screen.getch()
-            
-                if key == curses.KEY_UP:
-                    self.adv = self.adv + 20
-                    screen.addstr(5, 0, 'up: '+ str(self.adv)+ ' : ' + str(self.rot))
-                    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
-                elif key == curses.KEY_DOWN:
-                    self.adv = self.adv - 20
-                    screen.addstr(5, 0, 'down: '+ str(self.adv)+ ' : ' + str(self.rot))
-                    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
-                elif key == curses.KEY_LEFT:
-                    self.rot = self.rot - 0.1;
-                    screen.addstr(5, 0, 'left: '+ str(self.adv)+ ' : ' + str(self.rot))
-                    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
-                elif key == curses.KEY_RIGHT:
-                    self.rot = self.rot + 0.1;
-                    screen.addstr(5, 0, 'right: '+ str(self.adv)+ ' : ' + str(self.rot))
-                    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
-                elif key == ord(' '):
-                    self.rot = 0
-                    self.adv = 0
-                    screen.addstr(5, 0, 'stop: '+ str(self.adv)+ ' : ' + str(self.rot))
-                    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
-               	elif key == ord('q'):
-										curses.endwin()
-		    						sys.exit() 
-            except Ice.Exception, e:
-								curses.endwin()
-                traceback.print_exc()
-                print e
-            return True
+def compute(self):
+    try:
+        key = screen.getch()
+        
+        if key == curses.KEY_UP:
+            self.adv = self.adv + 20
+            screen.addstr(5, 0, 'up: '+ str(self.adv)+ ' : ' + str(self.rot))
+            self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+        elif key == curses.KEY_DOWN:
+            self.adv = self.adv - 20
+            screen.addstr(5, 0, 'down: '+ str(self.adv)+ ' : ' + str(self.rot))
+            self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+        elif key == curses.KEY_LEFT:
+            self.rot = self.rot - 0.1;
+            screen.addstr(5, 0, 'left: '+ str(self.adv)+ ' : ' + str(self.rot))
+            self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+        elif key == curses.KEY_RIGHT:
+            self.rot = self.rot + 0.1;
+            screen.addstr(5, 0, 'right: '+ str(self.adv)+ ' : ' + str(self.rot))
+            self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+        elif key == ord(' '):
+            self.rot = 0
+            self.adv = 0
+            screen.addstr(5, 0, 'stop: '+ str(self.adv)+ ' : ' + str(self.rot))
+            self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+        elif key == ord('q'):
+            curses.endwin()
+            sys.exit() 
+    
+    except Ice.Exception, e:
+        curses.endwin()
+        traceback.print_exc()
+        print e
+        
+    return True
 ```
 Save the code and simulate the innermodel simpleworld.xml and run the component by executing,
 
