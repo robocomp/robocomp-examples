@@ -1,6 +1,6 @@
-#Control the directions of the bot using keyboard
+# Control the directions of the bot using keyboard
 
-For this python component. Import DifferentialRobot and build the component using robocompdsl. This has been explained in detail in the previous tutorials. Next write the algorithm in specificworker.py. The algorithm is as follows
+For this python component. Import DifferentialRobot and build the component using robocompdsl. This has been explained in detail in the previous [tutorials](https://github.com/robocomp/robocomp/blob/stable/doc/robocompdsl.md). Next write the algorithm in specificworker.py. The algorithm is as follows
 
 1. Get the input data from the keyboard
 2. Check the key and perform actions accordingly
@@ -13,8 +13,8 @@ To implement this first initialize the code with the following in specific worke
  	curses.cbreak()            //respond to keys immediately (don't wait for enter)
 	screen.keypad(True)        //map arrow keys to special values  
 
-Define a parameter key which will get the input form the keyboard. If in case the key pressed is up arrow (KEY_UP) then increase the adv by 20 (arbitrary) and by using differentialrobot's setSpeedBase function control the bot. adv and rot are intialized to 0 initially. This is similar to other cases. The code is as follows,
-
+Define a parameter key which will get the input form the keyboard. If in case the key pressed is up arrow (KEY_UP) then increase the adv by 20 (arbitrary) and by using differentialrobot's setSpeedBase function control the bot. adv and rot are intialized to 0 initially at the  SpecificWorker class. This is similar to other cases. The code is as follows,
+```python
 	def compute(self):
             try:
                 key = screen.getch()
@@ -41,14 +41,14 @@ Define a parameter key which will get the input form the keyboard. If in case th
                     screen.addstr(5, 0, 'stop: '+ str(self.adv)+ ' : ' + str(self.rot))
                     self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
                	elif key == ord('q'):
-		    curses.endwin()
-		    sys.exit() 
+										curses.endwin()
+		    						sys.exit() 
             except Ice.Exception, e:
-		curses.endwin()
+								curses.endwin()
                 traceback.print_exc()
                 print e
             return True
-
+```
 Save the code and simulate the innermodel simpleworld.xml and run the component by executing,
 
 	python src/<componentname>.py --Ice.Config=etc/config
