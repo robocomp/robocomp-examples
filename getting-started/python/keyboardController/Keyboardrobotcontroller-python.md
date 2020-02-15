@@ -9,10 +9,10 @@ For this python component. Import DifferentialRobot and build the component usin
 To implement this first initialize the code with the following in [specificworker.py](src/specificworker.py).
 
 ```python
-	screen = curses.initscr()  //get the curses screen window
- 	curses.noecho()            //turn off input echoing
- 	curses.cbreak()            //respond to keys immediately (don't wait for enter)
-	screen.keypad(True)        //map arrow keys to special values  
+	screen = curses.initscr()  #get the curses screen window
+ 	curses.noecho()            #turn off input echoing
+ 	curses.cbreak()            #respond to keys immediately (don't wait for enter)
+	screen.keypad(True)        #map arrow keys to special values  
 ```
 
 Define a parameter key that will get the input from the keyboard. If in case the key pressed is up arrow (KEY_UP) then increase the adv by 20 (arbitrary) and by using differentialrobot's setSpeedBase function control the bot. adv and rot are initialized to 0 initially. This is similar to other cases. The code is as follows,
