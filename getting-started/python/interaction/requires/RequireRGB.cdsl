@@ -1,0 +1,11 @@
+import "RGB.idsl";
+
+Component RequireRGB
+{
+	Communications
+	{
+		requires RGB;
+	};
+	language Python;
+};
+

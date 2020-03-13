@@ -1,0 +1,11 @@
+import "RGB.idsl";
+
+Component ImplementRGB
+{
+	Communications
+	{
+		implements RGB;
+	};
+	language Python;
+};
+
