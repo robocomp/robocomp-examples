@@ -5,6 +5,6 @@
 - We can use `implement` or `publish` keyword in component to specify that the component is actually implementing the interface and the interface will transmit the data.
 - We can use `require` or `subscribe` keywords in component to specify that the component requires or need the data from other interfaces.
 
-We will implement a RGB component that will show you how you can share an Image data(Information) between two components.
+We will implement a CameraSimple component that will show you how you can share an Image data(Information) between two components.
 
-The implements folder contains implementation of the component. And the requires folder contains the a component that requires the information send by RGB component via proxy.
+The implements folder contains implementation of the component. And the requires folder contains the a component that requires the information send by CameraSimple component via proxy.

@@ -23,6 +23,7 @@ from PySide import QtGui, QtCore
 from genericworker import *
 
 import matplotlib.pyplot as plt
+import cv2
 import numpy as np
 
 # If RoboComp was compiled with Python bindings you can use InnerModel in Python
@@ -63,6 +64,9 @@ class SpecificWorker(GenericWorker):
 		# r = self.innermodel.transform("rgbd", z, "laser")
 		# r.printvector("d")
 		# print r[0], r[1], r[2]
+		self.image = cv2.imread(self.path)
+		self.width,self.height,self.depth = self.image.shape
+		self.image = np.array(self.image,dtype=np.uint8)
 		return True
 
 
@@ -70,13 +74,10 @@ class SpecificWorker(GenericWorker):
 	# getImage
 	#
 	def getImage(self):
-		#
-		#implementCODE
-		#
-		color = Image()
-		image = plt.imread(self.path)
-		color.red = [red for red in np.ravel(image[:,:,0])]
-		color.green = [green for green in np.ravel(image[:,:,1])]
-		color.blue = [blue for blue in np.ravel(image[:,:,2])]
-		return color
+		im = TImage()
+		im.width = self.width
+		im.height = self.height
+		im.depth = self.depth
+		im.image = self.image
+		return im
 

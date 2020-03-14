@@ -1,5 +1,5 @@
 # Proxies for required interfaces
-RGBProxy = rgb:tcp -h localhost -p 10001
+CameraSimpleProxy = camerasimple:tcp -h localhost -p 10001
 
 
 

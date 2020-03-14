@@ -1,5 +1,5 @@
 # Endpoints for implemented interfaces
-RGB.Endpoints=tcp -p 10001
+CameraSimple.Endpoints=tcp -p 10001
 
 
 

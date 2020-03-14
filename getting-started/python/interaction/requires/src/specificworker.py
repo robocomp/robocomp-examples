@@ -22,7 +22,7 @@ import sys, os, traceback, time
 from PySide import QtGui, QtCore
 from genericworker import *
 
-import matplotlib.pyplot as plt
+import cv2
 import numpy as np
 
 # If RoboComp was compiled with Python bindings you can use InnerModel in Python
@@ -44,7 +44,6 @@ class SpecificWorker(GenericWorker):
 		#except:
 		#	traceback.print_exc()
 		#	print "Error reading config params"
-		self.image = np.zeros((200,200,3),dtype=np.int)
 		return True
 
 	@QtCore.Slot()
@@ -63,11 +62,8 @@ class SpecificWorker(GenericWorker):
 		# r = self.innermodel.transform("rgbd", z, "laser")
 		# r.printvector("d")
 		# print r[0], r[1], r[2]
-		image = self.rgb_proxy.getImage()
-		self.image[:,:,0] = np.array(image.red).reshape(200,200)
-		self.image[:,:,1] = np.array(image.green).reshape(200,200)
-		self.image[:,:,2] = np.array(image.blue).reshape(200,200)
-		plt.imshow(self.image)
-		plt.show()
+		img = self.camerasimple_proxy.getImage()
+		image = np.fromstring(img.image,dtype=np.uint8).reshape(img.width,img.height,img.depth)
+		cv2.imshow("Cat",image)
 		return True
 
