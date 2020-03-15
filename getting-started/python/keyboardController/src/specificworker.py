@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2020 by sasilva1998
+# Copyright (C) 2020 by parasKumarSahu, sasilva1998
 #
 #    This file is part of RoboComp
 #
