@@ -70,4 +70,4 @@ Save the code and simulate the innermodel `simpleworld.xml` and run the componen
 
 `python3 src/<componentname>.py --Ice.Config=etc/config`
 
-
+Have in mind all this component project can be found in this repo as well.

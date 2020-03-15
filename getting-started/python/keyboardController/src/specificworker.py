@@ -1,5 +1,7 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 #
-# Copyright (C) 2015 by YOUR NAME HERE
+# Copyright (C) 2020 by sasilva1998
 #
 #    This file is part of RoboComp
 #
@@ -21,65 +23,66 @@ import sys, os, Ice, traceback, curses
 from PySide import *
 from genericworker import *
 
-# get the curses screen window
+# If RoboComp was compiled with Python bindings you can use InnerModel in Python
+# sys.path.append('/opt/robocomp/lib')
+# import librobocomp_qmat
+# import librobocomp_osgviewer
+# import librobocomp_innermodel
+
 screen = curses.initscr()
- 
-# turn off input echoing
 curses.noecho()
- 
-# respond to keys immediately (don't wait for enter)
 curses.cbreak()
- 
-# map arrow keys to special values
-screen.keypad(True)
- 
+screen.keypad(True) 
 
 class SpecificWorker(GenericWorker):
-        adv = 0
-        rot = 0
 	def __init__(self, proxy_map):
 		super(SpecificWorker, self).__init__(proxy_map)
 		self.timer.timeout.connect(self.compute)
 		self.Period = 1
 		self.timer.start(self.Period)
 		screen.addstr(0,0,'Connected to robot. Use arrows to control speed, space bar to stop ans ''q'' to exit')
+		self.adv=0
+		self.rot=0
+
+
+	def __del__(self):
+		print('SpecificWorker destructor')
 
 	def setParams(self, params):
 		return True
-
+	
 	tt1=2000
 	tt2=2
 	@QtCore.Slot()
-
 	def compute(self):
 		try:
-			key = screen.getch()       
+			key = screen.getch()
 			if key == curses.KEY_UP:
-			    self.adv = self.adv + 20
-			    screen.addstr(5, 0, 'up: '+ str(self.adv)+ ' : ' + str(self.rot))
-			    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+				self.adv = self.adv + 20
+				screen.addstr(5, 0, 'up: '+ str(self.adv)+ ' : ' + str(self.rot))
+				self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
 			elif key == curses.KEY_DOWN:
-			    self.adv = self.adv - 20
-			    screen.addstr(5, 0, 'down: '+ str(self.adv)+ ' : ' + str(self.rot))
-			    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+				self.adv = self.adv - 20
+				screen.addstr(5, 0, 'down: '+ str(self.adv)+ ' : ' + str(self.rot))
+				self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
 			elif key == curses.KEY_LEFT:
-			    self.rot = self.rot - 0.1;
-			    screen.addstr(5, 0, 'left: '+ str(self.adv)+ ' : ' + str(self.rot))
-			    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+				self.rot = self.rot - 0.1;
+				screen.addstr(5, 0, 'left: '+ str(self.adv)+ ' : ' + str(self.rot))
+				self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
 			elif key == curses.KEY_RIGHT:
-			    self.rot = self.rot + 0.1;
-			    screen.addstr(5, 0, 'right: '+ str(self.adv)+ ' : ' + str(self.rot))
-			    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+				self.rot = self.rot + 0.1;
+				screen.addstr(5, 0, 'right: '+ str(self.adv)+ ' : ' + str(self.rot))
+				self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
 			elif key == ord(' '):
-			    self.rot = 0
-			    self.adv = 0
-			    screen.addstr(5, 0, 'stop: '+ str(self.adv)+ ' : ' + str(self.rot))
-			    self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
+				self.rot = 0
+				self.adv = 0
+				screen.addstr(5, 0, 'stop: '+ str(self.adv)+ ' : ' + str(self.rot))
+				self.differentialrobot_proxy.setSpeedBase(self.adv, self.rot)
 			elif key == ord('q'):
 				curses.endwin()
-				sys.exit() 
-		except Ice.Exception, e:
+				sys.exit()
+		except Ice.Exception as e:
 			curses.endwin()
 			traceback.print_exc()
-			print e
+			print(e)
 		return True
