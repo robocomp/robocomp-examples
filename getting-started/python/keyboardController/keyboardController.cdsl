@@ -1,11 +1,12 @@
 import "DifferentialRobot.idsl";
+import "Laser.idsl";
 
 Component keyboardController
 {
-	Communications{
-		requires DifferentialRobot;
-
-	};
+    Communications
+    {
+        requires DifferentialRobot, Laser;
+    };
 	language Python;
 };
 
