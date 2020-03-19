@@ -4,7 +4,7 @@ After implementing the RGB component. We can create another component that will 
 
 This folder contains only those files which need to be changed to implement a RGB component i.e. the `CDSL` file, the specificworker.py file in src/ directory, and the config file in etc/ directory.
 
-- If you open the `CSDL` file, you can see `requires` keyword is used, which specifies that the component is required here.
+- If you open the `CSDL` file, you can see `requires` keyword is used, which specifies that the interface is referenced here.
 
 
 
@@ -40,4 +40,4 @@ Component RequireCameraSimple
 `python2 src/ImplementCameraSimple.py etc/config`<br>
 and then run the `RequireCameraSimple` component using<br>
 `python2 src/RequireCameraSimple.py etc/config`
-- If every step was correctly followed, You will see an Image of a cat(200x200 pixels) or any other image that you have used.
+- If every step was correctly followed, You will see Images from your webcam.

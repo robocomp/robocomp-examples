@@ -64,6 +64,6 @@ class SpecificWorker(GenericWorker):
 		# print r[0], r[1], r[2]
 		img = self.camerasimple_proxy.getImage()
 		image = np.fromstring(img.image,dtype=np.uint8).reshape(img.width,img.height,img.depth)
-		cv2.imshow("Cat",image)
+		cv2.imshow("Webcam",image)
 		return True
 

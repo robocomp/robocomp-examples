@@ -45,7 +45,7 @@ class SpecificWorker(GenericWorker):
 		#except:
 		#	traceback.print_exc()
 		#	print "Error reading config params"
-		self.path = 'cat.jpg'
+		self.capL = cv2.VideoCapture(0)
 		return True
 
 	@QtCore.Slot()
@@ -64,9 +64,12 @@ class SpecificWorker(GenericWorker):
 		# r = self.innermodel.transform("rgbd", z, "laser")
 		# r.printvector("d")
 		# print r[0], r[1], r[2]
-		self.image = cv2.imread(self.path)
+		retL, self.image = self.capL.read()
+		if retL:
+			self.rows,self.cols,self.depth =  self.image.shape
+		else:
+			print ("No frame could be read")
 		self.width,self.height,self.depth = self.image.shape
-		self.image = np.array(self.image,dtype=np.uint8)
 		return True
 
 
@@ -75,7 +78,7 @@ class SpecificWorker(GenericWorker):
 	#
 	def getImage(self):
 		im = TImage()
-		im.width = self.width
+		im.width = self.rows
 		im.height = self.height
 		im.depth = self.depth
 		im.image = self.image

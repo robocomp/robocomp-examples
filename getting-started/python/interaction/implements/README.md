@@ -32,7 +32,7 @@ Component ImplementCameraSimple
 
 - Open the `CameraSimple.idsl` file in `/opt/robocomp/interfaces/IDSLs` directory. As you can see, there is only one function i.e. `getImage()`. This function outputs a structure called `TImage` and the structure itself has 4 components which stores  of height, width, depth, and Image itself.
 
-- Remember the Ice middleware only supports data type which are python native data structure, hence you when you transmit data type such as numpy `arrays` or pandas `data frame`. They will be converted to string.
+- A Slice sequence maps by default to a Python list; the only exception is a sequence of bytes, which maps by default to a bytes object in Python 3.x or to a string object in Python 2.x in order to lower memory utilization and improve throughput. The CameraSimple uses a sequence of byte to store the image, which will be mapped to string by default in Python 2.x. For more Slice to Python mappings you can refer this [link](https://doc.zeroc.com/ice/3.7/language-mappings/python-mapping/client-side-slice-to-python-mapping).
 
 - Finally change the `CameraSimple.Endpoints` address(etc/config) to any 5 digit number that is not being currently used by any other component(I have used 10001).
 
