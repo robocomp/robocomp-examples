@@ -25,7 +25,6 @@
     5. Waits for the operation to complete
     6. Returns any out-parameters and the return value to the client (or throws an exception in case of an error)
 - A proxy encapsulates all the necessary information for this sequence of steps to take place.
-- A proxy is used by the client to
 - You can find the object address in the `implements/etc/config`.
 - You can find the proxy address in the `requires/etc/config`.
 
