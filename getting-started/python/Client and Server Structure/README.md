@@ -4,7 +4,7 @@ To understand how the robocomp works internally one should know answers to quest
 
 ## The Internet Communications Engine(ICE)
 - Robocomp uses The Internet Communications Engine(ICE) which helps the components written in different languages communicate.
-- Ice is an object-oriented middleware platform. Which helps programs written in different language communicate by creating servers and clients. To know more about ICE you can read the ICE [documentation](https://doc.zeroc.com/ice/3.7/ice-overview/ice-architecture). 
+- Ice is an object-oriented middleware platform. Which helps programs communicate by creating servers and clients. To know more about ICE you can read the ICE [documentation](https://doc.zeroc.com/ice/3.7/ice-overview/ice-architecture). 
 
 ## Servers & Clients
 - An application will act as a server if it transmits some kind of information.
