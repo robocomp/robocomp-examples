@@ -1,0 +1,11 @@
+import "CameraSimple.idsl";
+
+Component RequireCameraSimple
+{
+	Communications
+	{
+		requires CameraSimple;
+	};
+	language Python;
+};
+
