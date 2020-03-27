@@ -5,7 +5,7 @@ Generate a component which subscribes to DifferentialRobot and Laser interfaces.
 In the newly generated component open the specificworker.py in a text editor and write the algorithm as follows
 
 1. Get the distance between the obstacle and the robot. This is explained in the previous tutorial
-2. Check if the condition is below the treshold distance
+2. Check if the condition is below the threshold distance
 3. If yes then rotate the bot
 4. If no proceed forward
 
