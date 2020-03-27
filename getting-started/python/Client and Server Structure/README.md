@@ -1,6 +1,6 @@
 # README
 
-To understand how the robocomp works internally one should know answers to questions like how the robocomp's components share data, how data structure from one language is mapped to the other, What are proxies, server, etc.
+To understand how the robocomp works internally one should know answers to questions like how the robocomp's components share data, how data structure from one language is mapped to the other, what are proxies, server, etc.
 
 ## The Internet Communications Engine(ICE)
 - Robocomp uses The Internet Communications Engine(ICE) which helps the components written in different languages communicate.
@@ -11,7 +11,7 @@ To understand how the robocomp works internally one should know answers to quest
 - An application that requests' server for information is called the client.
 - Applications are not necessarily servers or clients but generally mix of those two i.e. peers.
 - Servers and Clients are used by robocomp's component to share data.
-- You should read more about ICE servers, Clients and architecture You can find the documentation [here](https://doc.zeroc.com/technical-articles/general-topics/chat-demo/concepts#Concepts-ClientsandServers). 
+- You should read more about ICE servers, clients and architecture You can find the documentation [here](https://doc.zeroc.com/technical-articles/general-topics/chat-demo/concepts#Concepts-ClientsandServers). 
 
 ## Objects & Proxies
 
