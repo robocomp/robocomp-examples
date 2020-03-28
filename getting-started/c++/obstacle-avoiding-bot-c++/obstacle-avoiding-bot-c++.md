@@ -33,7 +33,7 @@ To program the component
 	cd src
 	gedit specificworker.cpp
 
-Here we will be using both the interfaces we have learned so far. The entire algorithm is as follows
+Here we will be using both the interfaces we have learnt so far. The entire algorithm is as follows
 
 1. set a threshold value for distance at which the bot should avoid the obstacle and angle to rotate 
 2. get laser data and store it in ldata
@@ -110,4 +110,4 @@ come back to the previous tab of the terminal and now run the above component by
 
 	bin/obstacle --Ice.Config=etc/config
 
-You will now see the bot moving around avoiding obstacles and outputting the distance measurements on the command window. The code for this component can be found in obstacle folder along with this readme file.
+You will now see the bot moving around avoiding obstacle and outputting the distance measurements on the command window. The code for this component can be found in obstacle folder along with this readme file.
