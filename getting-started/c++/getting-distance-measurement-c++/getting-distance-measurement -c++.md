@@ -31,11 +31,11 @@ To program the component
 	cd src
 	gedit specificworker.cpp
 
-Here we use Laser.idsl is used to get the distance from an obstacle. Hence we need to declare a vector that would store the distances that are measured. In this example it is called ldata
+Here we use Laser.idsl is used to get the distance from an obstacle. Hence we need to declare a vector that would store the distances that are measured. In this example, it is called ldata
 
 	RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
 
-The above line as discussed above gets the laser data, `getLaserData()` and stores it in `ldata`. Now since keeping into consideration that the bot will be moving and the distance has to be measured continuosly we sort the data that is been collected and stored in ldata by executing the code
+The above line as discussed above gets the laser data, `getLaserData()` and stores it in `ldata`. Now since keeping into consideration that the bot will be moving and the distance has to be measured continuously we sort the data that is been collected and stored in ldata by executing the code
 
 ```
 std::sort( ldata.begin(), ldata.end(), [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;
@@ -95,6 +95,6 @@ come back to the previous tab of the terminal and now run the above component by
 
 You will now see the bot outputting the distance measurements on the command window.
 
-Here the bot moves in random and you will see the results on the command window. The code for this component is in dist folder along with this readme file.
+Here the bot moves in random and you will see the results on the command window. The code for this component is in the dist folder along with this readme file.
 
 As an exercise you can try building a obstacle avoiding bot using the same interfaces that you have learnt now.

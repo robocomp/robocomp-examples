@@ -35,14 +35,14 @@ To program the component
 
 Here we will be using both the interfaces we have learnt so far. The entire algorithm is as follows
 
-1. set a treshold value for distance at which the bot should avoid the obstacle and angle to rotate 
+1. set a threshold value for distance at which the bot should avoid the obstacle and angle to rotate 
 2. get laser data and store it in ldata
 3. sort the data in ldata
-4. if the distance is less than the set treshold data then move right
+4. if the distance is less than the set threshold data then move right
 5. display the distance and move forward
 6. increase the angle by any value so that next time it moves towards the left.
 7. If the rotation angle reaches a maximum then set it back to the original value
-8. If the distance more than the treshold than proceed forward.
+8. If the distance more than the threshold than proceed forward.
 
 If you implement this algorithm your specificworker.cpp should be
 
