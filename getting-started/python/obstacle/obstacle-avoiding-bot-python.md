@@ -1,8 +1,8 @@
-#Obstacle avoiding bot
+# Obstacle avoiding bot
 
-Generate a component which subscribes to DifferentialRobot and Laser interfaces. The tutorial for the same is described in detail in the previous tutorials.
+Generate a component which subscribes to `DifferentialRobot` and `Laser` interfaces. The tutorial for the same is described in detail in the previous tutorials.
 
-In the newly generated component open the specificworker.py in a text editor and write the algorithm as follows
+In the newly generated component open the `specificworker.py` in a text editor and write the algorithm as follows
 
 1. Get the distance between the obstacle and the robot. This is explained in the previous tutorial
 2. Check if the condition is below the threshold distance
@@ -11,8 +11,15 @@ In the newly generated component open the specificworker.py in a text editor and
 
 Here rotation is set to a variable which keep changing in each loop. This is done so as to ensure same path is not traced again and again.
 
-The code for the above algorithm is
+Some modules must be imported as follows
+```python
+import sys, os, traceback, time
+from PySide import QtGui, QtCore
+```
 
+And so the code for the above algorithm is
+
+```python
 		def compute(self):
 			print 'SpecificWorker.compute...'
 			rot = 0.7
@@ -42,14 +49,16 @@ The code for the above algorithm is
 				traceback.print_exc()
 				print e
 			return True
+```
 
-Note that here the values set are arbitrary and can be changed according to your requirements. Save the file and in a new tab simulate a innermodel
-	
-	cd robocomp/files/innermodel
-	rcis simpleworld.xml
- 
-execute the component
+Note that here the values set are arbitrary and can be changed according to your requirements. Save the file and in a new tab simulate an innermodel.
+```bash
+cd robocomp/files/innermodel
+rcis simpleworld.xml
+```
 
-	python src/componentname.py --Ice.Config=etc/config
+Execute the component with:
+
+`python src/componentname.py --Ice.Config=etc/config`
 
 Now you will find the obstacle avoiding bot is successfully implemented.
