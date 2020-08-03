@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rcmanager>
+
+ <generalInformation>
+  <editor path="kate" dock="false" />
+  <timeouts fixed="1000.0" blink="300.0" />
+  <clicks switch="2.0" interval="400.0" />
+  <graph alpha="80.0" active="false" scale="200.0" />
+  <graphTiming idletime="1000.0" focustime="500.0" fasttime="10.0" fastperiod="2000.0" />
+  <simulation hookes="0.07" springlength="0.5" friction="0.4" step="0.5" fieldforce="20000.0" />
+ </generalInformation>
+
+ <node alias="executive" endpoint="agmexecutive:tcp -p 10198">
+  <dependence alias="IS" />
+  <workingDir path="/home/robocomp/" />
+  <upCommand command="rcremote localhost AGMExecutive /home/robocomp/AGM/tools/AGMExecutive_robocomp python2 AGMExecutive_robocomp.py /home/robocomp/robocomp/components/robocomp-examples/getting-started/python/AGM_Agent/etc/executive_sample.conf" />
+  <downCommand command="pkill -9 -f AGMExecutive_robocomp.py" />
+  <configFile path="xxx" />
+  <xpos value="-6.3051263852435815" />
+  <ypos value="-0.769427857657484" />
+  <radius value="10.0" />
+  <color value="#33FF33" />
+ </node>
+
+ <node alias="IS" endpoint="IceStorm/TopicManager:default -p 9999">
+  <workingDir path="/home/robocomp/" />
+  <upCommand command="rcremote localhost IS /home/robocomp/robocomp/components/robocomp-examples/getting-started/python/AGM_Agent/etc/ rcnode " />
+  <downCommand command="killall -9 icebox" />
+  <configFile path="" />
+  <xpos value="94.15001657531933" />
+  <ypos value="0.7526571346327748" />
+  <radius value="10.0" />
+  <color value="#FF3333" />
+ </node>
+
+ <node alias="mission" endpoint="commonbehavior:tcp -h localhost -p 11247">
+  <dependence alias="executive" />
+  <workingDir path="/home/robocomp/" />
+  <upCommand command="rcremote localhost mission /home/robocomp/ agmmission /home/robocomp/robocomp/components/robocomp-examples/getting-started/python/AGM_Agent/etc/mission.conf" />
+  <downCommand command="killall -9 agmmission" />
+  <configFile path="kate /home/robocomp/robocomp/components/robocomp-examples/getting-started/python/AGM_Agent/etc/mission.conf" />
+  <xpos value="-87.84489019007576" />
+  <ypos value="0.016770723024709056" />
+  <radius value="10.0" />
+  <color value="#33FF33" />
+ </node>
+
+</rcmanager>
