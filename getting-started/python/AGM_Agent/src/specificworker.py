@@ -49,7 +49,6 @@ class SpecificWorker(GenericWorker):
             time.sleep(1)
         self.addLink('1','3200')
         print("adding Link from id:1 -> id:3200")
-        self.agmexecutive_proxy.edgeUpdate()
         self.updatingDSR()
         time.sleep(2)
 
