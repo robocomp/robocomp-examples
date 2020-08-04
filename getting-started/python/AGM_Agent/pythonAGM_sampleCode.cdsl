@@ -1,0 +1,11 @@
+
+Component sampleCode
+{
+    Communications
+    {
+        
+    };
+    language Python;
+    options agmagent;
+};
+
