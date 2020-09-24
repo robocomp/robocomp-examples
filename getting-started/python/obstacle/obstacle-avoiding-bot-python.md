@@ -1,6 +1,6 @@
-#Obstacle avoiding bot
+# Obstacle avoiding bot
 
-Generate a component which subscribes to DifferentialRobot and Laser interfaces. The tutorial for the same is described in detail in the previous tutorials.
+Generate a component that subscribes to DifferentialRobot and Laser interfaces. The tutorial for the same is described in detail in the previous tutorials.
 
 In the newly generated component open the specificworker.py in a text editor and write the algorithm as follows
 
@@ -9,10 +9,11 @@ In the newly generated component open the specificworker.py in a text editor and
 3. If yes then rotate the bot
 4. If no proceed forward
 
-Here rotation is set to a variable which keep changing in each loop. This is done so as to ensure same path is not traced again and again.
+Here rotation is set to a variable which keeps changing in each loop. This is done to ensure the same path is not traced again and again.
 
 The code for the above algorithm is
 
+```python
 		def compute(self):
 			print 'SpecificWorker.compute...'
 			rot = 0.7
@@ -42,14 +43,18 @@ The code for the above algorithm is
 				traceback.print_exc()
 				print e
 			return True
+```
 
 Note that here the values set are arbitrary and can be changed according to your requirements. Save the file and in a new tab simulate a innermodel
-	
+
+```bash
 	cd robocomp/files/innermodel
 	rcis simpleworld.xml
- 
+ ```
 execute the component
 
+```bash
 	python src/componentname.py --Ice.Config=etc/config
+```
 
 Now you will find the obstacle avoiding bot is successfully implemented.
