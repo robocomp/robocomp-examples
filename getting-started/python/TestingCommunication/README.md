@@ -47,7 +47,7 @@ def compute(self):
         return True
 ```
 ## Using the components
-This is it. Everything is prepared now we need to run the simulation and open up two tabs for the consoles to watch how the components function. After using the commands for each component in each window:
+This is it. Everything is prepared now we need to run the simulation and open up two tabs for the consoles to watch how the components function. After using the commands for each component in each window:\
 Speaker
 ```bash
 cd ~/robocomp/robocomp-examples/getting-started/python/TestingCommunication
