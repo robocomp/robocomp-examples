@@ -1,4 +1,4 @@
-#aprilTagsComp: wrapping E. Olson's AprilTags in RoboComp
+# aprilTagsComp: wrapping E. Olson's AprilTags in RoboComp
 
 AprilTags is an augmented reality tag system developed by E. Olson at the U. of Michigan, USA. A complete explanation and related papers can be found [here](http://april.eecs.umich.edu/wiki/index.php/AprilTags). There is a C++ version written by Michael Kaes [here](http://people.csail.mit.edu/kaess/apriltags/) which is the one we use.
 
@@ -22,7 +22,7 @@ The *AprilTags.cdsl* file specifies how *apriltagsComp* has been generated and h
 
 This files tells us that the component requires -will be calling- three RoboComp interfaces: Camera, RGBDBus y RGBD, which are normal and depth camera's interfaces written in RoboComp's IDSL language. You can find those files in *~/robocomp/interfaces/IDSLs*. Also, the component will publish the data defined in the *AprilTags* interface and will implement the *GetAprilTags* interface. This means that using images provided by a component implementing the camera or RGBD interfaces, it will try to detect any tags in them and compute their 6D pose. Finally, it will publish a vector with all the tags id's and poses to the Ice's STORM broker, and also it will attend any direct requests (remote procedure calls) received from other components through the *GetAprilTags* interface. So it is a rather serviceable and handy component!
 
-To access **apriltagsComp** you need to install from *http://github.org/robocomp* the repository named *robocomp-robolab*. 
+To access **apriltagsComp** you need to install from *http://github.org/robocomp* the repository named *robocomp-robolab*.
 
     cd ~/robocomp/components
     git clone https://github.com/robocomp/robocomp-robolab.git
@@ -30,23 +30,23 @@ To access **apriltagsComp** you need to install from *http://github.org/robocomp
 Once downloaded, *apriltagsComp* can be found in:
 
     ~/robocomp/components/robocomp-robolab/components/apriltagsComp
-    
+
 First, read the *INSTALL_APRILTAGS_LIB.TXT* file and follow instructions thereby. Once the library has been installed in /usr/local, we can proceed to compile the component:
 
     cd ~/robocomp/components/robocomp-robolab/components/apriltagsComp
     cmake .
     make
-    
+
 We should have a binary now:
 
     ~/robocomp/components/robocomp-robolab/components/apriltagsComp/bin/apriltagscomp
-    
+
 
 ##Configuration parameters
 As any other component, *apriltagsComp* needs a *config* file to start. In
 
     ~/robocomp/components/robocomp-robolab/components/apriltagsComp/etc/generic_config
-   
+
 you can find an example of a configuration file. We can find there the following lines:
 
     GetAprilTagsComp.Endpoints=tcp -p 12210                     //Port where GetAprilTags iface is served
@@ -78,7 +78,7 @@ So, to begin we type:
 
     cd ~/robocomp/components/robocomp-robolab/components/apriltagsComp
     bin/apriltagscomp --Ice.Config=config
-    
+
 If the robot's camera is pointing towards one of the tags, You should see in the terminal lines showing the ID and pose of each visible tag.
 
 
