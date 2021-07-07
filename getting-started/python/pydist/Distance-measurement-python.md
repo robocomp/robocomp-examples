@@ -1,9 +1,10 @@
-#Getting Distance and Angle Measurements
+# Getting Distance and Angle Measurements
 
-First we create a component, Refer previous tutorials where it is explained in detail.
+First, we create a component, Refer previous tutorials where it is explained in detail.
 
-For this example import both the DifferentialRobot and Laser interfaces hence your cdsl file should be
+For this example import both the DifferentialRobot and Laser interfaces hence your .cdsl file should be
 
+```cpp
 	import "/robocomp/interfaces/IDSLs/Laser.idsl";
 	import "/robocomp/interfaces/IDSLs/DifferentialRobot.idsl";
 	Component pydist{
@@ -13,13 +14,19 @@ For this example import both the DifferentialRobot and Laser interfaces hence yo
 		};
 		language Python;
 	};
+```
 
-Generate the code using robocompdsl into a build folder. And navigate to src folder which is inside the build folder and open specificworker.py in any text editor.
+Generate the code using` robocompdsl` into the `build` folder. And navigate to `src` folder which is inside the build folder and open `specificworker.py` in any text editor.
 
-Now you can edit the compute function in the file according to the problem statement. To get the distance and angle measurements we use laser interface and for movements we use DifferentialRobot interface
+Now you can edit the compute function in the file according to the problem statement. To get the distance and angle measurements we use laser interface and for movements, we use DifferentialRobot interface.
 
-The algorithm is as follows we move the bot randomly first and then collect the laser data and store it in a defined vector say ldata. We then sort the distance data and take the first data of the vector list ldata. THe code is as below
+The algorithm is as follows :-
+- we move the bot randomly first.
+- Collect the laser data and store it in a defined vector say ldata.
+- We then sort the distance data and take the first data of the vector list ldata.<br/>
+The code is as below,
 
+```python
 		ldata = []
 		d= []
 		a =[]
@@ -41,9 +48,11 @@ The algorithm is as follows we move the bot randomly first and then collect the 
 		print distance
 		print angle
 		time.sleep(3)
+```
 
-As told in the algorithm we first define the ldata, Start moving the bot randomly and collect the laser data, sort the distance only by appending it to a new list. Take the first element for the new list and output the same on the command window. Your final compute function will look something like this
+As showed in the algorithm above, we first define the ldata, Start moving the bot randomly and collect the laser data, sort the distance only by appending it to a new list. Take the first element for the new list and output the same on the command window. Your final compute function will look something like this
 
+```python
 		def compute(self):
 		print 'SpecificWorker.compute...'
 		try:
@@ -72,9 +81,12 @@ As told in the algorithm we first define the ldata, Start moving the bot randoml
 			traceback.print_exc()
 			print e
 		return True
+```
 
 Save it and run the component by executing
 
+```bash
 	python src/pydist.py --Ice.Config=etc/config
+```
 
 The distance and angle of the obstacles are outputted on the command window. 
